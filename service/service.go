@@ -3,6 +3,8 @@ package service
 import "URL-shortener/repository"
 
 type URLService interface {
+	SaveURL(url string) (string, error)
+	GetByAlias(alias string) (string, error)
 }
 
 type Service struct {

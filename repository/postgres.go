@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	usersTable = "users"
+	urlsTable = "url"
 )
 
 type Config struct {
@@ -20,8 +20,11 @@ type Config struct {
 }
 
 func NewPostgresDB(cfg Config) (*sqlx.DB, error) {
-	db, err := sqlx.Open("postgres", fmt.Sprintf("host=%s port=%s user=%s dbname=%s password=%s sslmode=%s",
-		cfg.Host, cfg.Port, cfg.Username, cfg.DBName, cfg.Password, cfg.SSLMode))
+	connectionString := fmt.Sprintf("host=%s port=%s user=%s dbname=%s password=%s sslmode=%s",
+		cfg.Host, cfg.Port, cfg.Username, cfg.DBName, cfg.Password, cfg.SSLMode)
+	//fmt.Println(connectionString)
+	db, err := sqlx.Open("postgres", connectionString)
+
 	if err != nil {
 		return nil, err
 	}

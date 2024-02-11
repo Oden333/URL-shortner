@@ -5,6 +5,8 @@ import (
 )
 
 type URLRepo interface {
+	SaveURL(url, alias string) (int64, string, error)
+	GetByAlias(alias string) (string, error)
 }
 
 type Repository struct {

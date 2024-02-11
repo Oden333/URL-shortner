@@ -19,12 +19,13 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.Default()
 
 	//Конфигурация рутов
-	auth := router.Group("/people")
+	url := router.Group("/")
 	{
+		//Метод для добавления записей
+		url.POST("a/", h.createUrl)
 
-		auth.POST("/add")
-
+		//Метод для получения записей
+		url.GET("s/:alias", h.getUrl)
 	}
-
 	return router
 }
