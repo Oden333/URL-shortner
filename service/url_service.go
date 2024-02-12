@@ -44,6 +44,9 @@ func (s *URL_service) SaveURL(urlToSave string) (string, error) {
 }
 
 func (s *URL_service) GetByAlias(alias string) (string, error) {
+	if alias == "" {
+		return "", ErrorEmptyAlias
+	}
 	/*
 		//Проводим валидацию данных
 		if err := validator.New().Struct(alias); err != nil {

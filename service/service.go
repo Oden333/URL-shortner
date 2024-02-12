@@ -2,6 +2,8 @@ package service
 
 import "URL-shortener/repository"
 
+//go:generate mockgen -source=service.go -destination=mocks/mock.go
+
 type URLService interface {
 	SaveURL(url string) (string, error)
 	GetByAlias(alias string) (string, error)

@@ -38,8 +38,8 @@ func (h *Handler) getUrl(c *gin.Context) {
 	var req Request
 	req.Alias = c.Param("alias")
 	if req.Alias == "" {
-		logrus.Debug(ErrorEmptyURL)
-		newErrorResponse(c, http.StatusInternalServerError, ErrorEmptyURL.Error())
+		logrus.Debug(ErrorEmptyAlias)
+		newErrorResponse(c, http.StatusInternalServerError, ErrorEmptyAlias.Error())
 		return
 	}
 	logrus.Info("Got request with Alias: ", "", req.Alias)

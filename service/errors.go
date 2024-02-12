@@ -3,5 +3,7 @@ package service
 import "errors"
 
 var (
-	ErrorEmpty = errors.New("Empty")
+	ErrorURLNotFound = errors.New("URL not found")
+	ErrorURLExists   = errors.New("URL already exists")
+	ErrorEmptyAlias  = errors.New("Empty alias param")
 )
